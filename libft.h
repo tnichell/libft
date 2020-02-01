@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# define BUFF_SIZE 100
 
 typedef struct		s_list
 {
@@ -25,6 +26,14 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef	struct				s_get_next_line
+{
+	int						fd;
+	char					*reminder;
+	struct s_get_next_line	*next;
+}							t_gnl;
+
+int					get_next_line(int fd, char **line);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
